@@ -3,8 +3,8 @@ var cnn=mysql.createPool({
     
     host:'localhost',
     user:'root',
-    password:'aayush@123',
-    database:'database'
+    password:'',
+    database:'abcd'
 
 });
 module.exports=cnn;
