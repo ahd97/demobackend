@@ -22,7 +22,7 @@ var product = {
     },
     
     addProduct:function(product,callback){
-       return db.query("insert into Product (Product_id,Product_name) values(?,?)",[product.Product_id,product.Product_name],callback);
+       return db.query("insert into Product values(?,?)",[product.Product_id,product.Product_name],callback);
     }
     
 };

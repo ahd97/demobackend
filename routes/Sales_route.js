@@ -1,11 +1,11 @@
 var exp = require('express');
 var route = exp.Router();
-var product = require('../model/Product_model');
+var sale = require('../model/Sales_model');
 
 route.get('/:id?', function (req, res, next) {
     if (req.params.id) {
 
-        product.getProductById(req.params.id, function (err, rows) {
+        sale.getSaleById(req.params.id, function (err, rows) {
 
             if (err) {
                 res.json(err);
@@ -17,7 +17,7 @@ route.get('/:id?', function (req, res, next) {
     }
     else {
 
-        product.getAllProducts(function (err, row) {
+        sale.getAllSales(function (err, row) {
 
             if (err) {
                 res.json(err);
@@ -31,7 +31,7 @@ route.get('/:id?', function (req, res, next) {
 
 route.delete('/:id', function (req, res, next) {
 
-    product.deleteProductById(req.params.id, function (err, row) {
+    sale.deleteSaleById(req.params.id, function (err, row) {
         if (err) {
             res.json(err);
         }
@@ -44,7 +44,7 @@ route.delete('/:id', function (req, res, next) {
 
 route.put('/:id', function (req, res, next) {
 
-    product.updateProduct(req.params.id, req.body, function (err, row) {
+    sale.updateSale(req.params.id, req.body, function (err, row) {
 
         if (err) {
             res.json(err);
@@ -57,7 +57,7 @@ route.put('/:id', function (req, res, next) {
 
 route.post('/', function (req, res, next) {
 
-    product.addProduct(req.body, function (err, count) {
+    sale.addSale(req.body, function (err, count) {
 
         if (err) {
             res.json(err);
