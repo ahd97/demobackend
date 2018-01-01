@@ -16,13 +16,13 @@ var purchase = {
 
     updatePurchase:function(id,purchase,callback)
     {
-      console.log(purchase.Purchase_date);
+      console.log(purchase.Amount);
       console.log(id);
-      return  db.query("update Purchase set Purchase_date=? where Purchase_id=?",[purchase.Purchase_date,id],callback);
+      return  db.query("update Purchase set Purchase_date=?,Amount=? where Purchase_id=?",[purchase.Purchase_date,purchase.Amount,id],callback);
     },
     
     addPurchase:function(purchase,callback){
-       return db.query("insert into Purchase values(?,?)",[purchase.Purchase_id,purchase.Purchase_order_id],callback);
+       return db.query("insert into Purchase(Purchase_id,Purchase_date,Purchase_order_id,Purchase_payment_id,Amount) values(?,?,?,?,?)",[null,purchase.Purchase_date,purchase.Purchase_order_id,purchase.Purchase_payment_id,purchase.Amount],callback);
     }
     
 };

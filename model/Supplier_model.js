@@ -18,11 +18,11 @@ var supplier = {
     {
       console.log(supplier.Name);
       console.log(id);
-      return  db.query("update Supplier set Name=? where Supplier_id=?",[supplier.Name,id],callback);
+      return  db.query("update Supplier set Name=?,Address=?,Ph_no=? where Supplier_id=?",[supplier.Name,supplier.Address,supplier.Ph_no,id],callback);
     },
     
     addSupplier:function(supplier,callback){
-       return db.query("insert into Supplier values(?,?)",[supplier.Supplier_id,supplier.Name],callback);
+       return db.query("insert into Supplier(Supplier_id,Name,Address,Ph_no) values(?,?,?,?)",[null,supplier.Name,supplier.Address,supplier.Ph_no],callback);
     }
     
 };

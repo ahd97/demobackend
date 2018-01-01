@@ -22,7 +22,7 @@ var cart = {
     },
     
     addCart:function(cart,callback){
-       return db.query("insert into Cart values(?,?)",[cart.Cart_id,cart.User_id],callback);
+       return db.query("insert into Cart(Cart_id,User_id) values(?,?)",[null,cart.User_id],callback);
     }
     
 };

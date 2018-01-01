@@ -18,11 +18,11 @@ var product = {
     {
       console.log(product.Product_name);
       console.log(id);
-      return  db.query("update Product set Product_name=? where Product_id=?",[product.Product_name,id],callback);
+      return  db.query("update Product set Product_name=?,Description=?,QOH=? where Product_id=?",[product.Product_name,product.Description,product.QOH,id],callback);
     },
     
     addProduct:function(product,callback){
-       return db.query("insert into Product (Product_id,Product_name) values(?,?)",[product.Product_id,product.Product_name],callback);
+       return db.query("insert into Product values(?,?,?,?,?,?,?,?,?,?,?)",[null,product.Product_name,product.Description,product.QOH,product.Price,product.Product_cat_id,product.Color_id,product.Design_id,product.is_active,product.created_date,product.updated_date],callback);
     }
     
 };

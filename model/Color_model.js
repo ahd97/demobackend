@@ -22,7 +22,7 @@ var color = {
     },
     
     addColor:function(color,callback){
-       return db.query("insert into Color values(?,?)",[color.Color_id,color.Color_name],callback);
+       return db.query("insert into Color(Color_id,Color_name) values(?,?)",[null,color.Color_name],callback);
     }
     
 };

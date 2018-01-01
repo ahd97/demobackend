@@ -22,7 +22,7 @@ var product_cat = {
     },
     
     addProduct_Category:function(product_cat,callback){
-       return db.query("insert into Product_Category values(?,?)",[product_cat.Product_cat_id,product_cat.Category_name],callback);
+       return db.query("insert into Product_Category(Product_cat_id,Category_name) values(?,?)",[null,product_cat.Category_name],callback);
     }
     
 };

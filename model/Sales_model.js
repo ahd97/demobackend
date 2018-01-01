@@ -22,7 +22,7 @@ var sale = {
     },
     
     addSale:function(sale,callback){
-       return db.query("insert into Sales values(?,?)",[sale.Sales_id,sale.Sales_order_id],callback);
+       return db.query("insert into Sales(Sales_id,Sales_date) values(?,?)",[null,sale.Sales_date],callback);
     }
     
 };

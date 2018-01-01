@@ -22,7 +22,7 @@ var design = {
     },
     
     addDesign:function(design,callback){
-       return db.query("insert into Design values(?,?)",[design.Design_id,design.Design_name],callback);
+       return db.query("insert into Design (Design_id,Design_name) values(?,?)",[null,design.Design_name],callback);
     }
     
 };

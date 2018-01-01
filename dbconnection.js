@@ -4,7 +4,7 @@ var cnn=mysql.createPool({
     host:'localhost',
     user:'root',
     password:'',
-    database:'abcd'
+    database:'online_laminates'
 
 });
 module.exports=cnn;

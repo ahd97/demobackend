@@ -2,7 +2,7 @@ var db = require('../dbconnection');
 var role = {
     getAllRole: function (callback) {
 
-      return  db.query("select * from Role_Msater", callback);
+      return  db.query("select * from Role_Master", callback);
     },
 
     getRoleById:function(id,callback){
@@ -22,7 +22,7 @@ var role = {
     },
     
     addRole:function(role,callback){
-       return db.query("insert into Role_Master values(?,?)",[role.Role_id,role.Role_name],callback);
+       return db.query("insert into Role_Master(Role_id,Role_name) values(?,?)",[null,role.Role_name],callback);
     }
     
 };

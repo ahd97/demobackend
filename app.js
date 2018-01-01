@@ -18,6 +18,21 @@ var color=require('./routes/Color_route');
 var supplier=require('./routes/Supplier_route');
 var city=require('./routes/City_route');
 var feedback=require('./routes/Feedback_route');
+var company=require('./routes/Company_route');
+var purchase_detail =require('./routes/Purchase_Detail_route');
+var purchase_order_detail=require('./routes/Purchase_Order_Detail_route');
+var purchase_order=require('./routes/Purchase_Order_route');
+var purchase_payment=require('./routes/Purchase_Payment_route');
+var purchase_return_detail=require('./routes/Purchase_Return_Detail_route');
+var purchase_return=require('./routes/Purchase_Return_route');
+var sales_detail=require('./routes/Sales_Detail_route');
+var sales_order_detail=require('./routes/Sales_Order_Detail_route');
+var sales_order=require('./routes/Sales_Order_route');
+var sales_payment=require('./routes/Sales_Payment_route');
+var sales_return_detail=require('./routes/Sales_Return_Detail_route');
+var sales_return=require('./routes/Sales_Return_route');
+var image=require('./routes/Image_route');
+var cart_detail=require('./routes/Cart_Detail_route');
 var app = express();
 
 // view engine setup
@@ -46,6 +61,21 @@ app.use('/color',color);
 app.use('/supplier',supplier);
 app.use('/city',city);
 app.use('/feedback',feedback);
+app.use('/company',company);
+app.use('/purchase_detail',purchase_detail);
+app.use('/purchase_order',purchase_order);
+app.use('/purchase_order_detail',purchase_order_detail);
+app.use('/purchase_payment',purchase_payment);
+app.use('/purchase_return_detail',purchase_return_detail);
+app.use('/purchase_return',purchase_return);
+app.use('/sales_detail',sales_detail);
+app.use('/sales_order',sales_order);
+app.use('/sales_order_detail',sales_order_detail);
+app.use('/sales_payment',sales_payment);
+app.use('/sales_return',sales_return);
+app.use('/sales_return_detail',sales_return_detail);
+app.use('/image',image);
+app.use('/cart_detail',cart_detail);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

@@ -22,7 +22,7 @@ var city = {
     },
     
     addCity:function(city,callback){
-       return db.query("insert into City values(?,?)",[city.City_id,city.City_name],callback);
+       return db.query("insert into City (City_id,City_name) values(?,?)",[null,city.City_name],callback);
     }
     
 };
