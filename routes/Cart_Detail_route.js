@@ -2,10 +2,10 @@ var exp = require('express');
 var route = exp.Router();
 var cart_detail = require('../model/Cart_Detail_model');
 
-route.get('/:id?', function (req, res, next) {
-    if (req.params.id) {
+route.get('/:id/:id1?', function (req, res, next) {
+    if (req.params.idreq.params.id1) {
 
-        cart_detail.getCart_DetailById(req.params.id, function (err, rows) {
+        cart_detail.getCart_DetailById(req.params.id,req.params.id1, function (err, rows) {
 
             if (err) {
                 res.json(err);
@@ -29,9 +29,9 @@ route.get('/:id?', function (req, res, next) {
     }
 });
 
-route.delete('/:id', function (req, res, next) {
+route.delete('/:id/:id1', function (req, res, next) {
 
-    cart_detail.deleteCart_DetailById(req.params.id, function (err, row) {
+    cart_detail.deleteCart_DetailById(req.params.id,req.params.id1, function (err, row) {
         if (err) {
             res.json(err);
         }
@@ -42,9 +42,9 @@ route.delete('/:id', function (req, res, next) {
     });
 });
 
-route.put('/:id', function (req, res, next) {
+route.put('/:id/:id1', function (req, res, next) {
 
-    cart_detail.updateCart_Detail(req.params.id, req.body, function (err, row) {
+    cart_detail.updateCart_Detail(req.params.id,req.params.id1, req.body, function (err, row) {
 
         if (err) {
             res.json(err);

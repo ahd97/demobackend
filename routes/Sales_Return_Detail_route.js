@@ -2,10 +2,10 @@ var exp = require('express');
 var route = exp.Router();
 var sale_return_detail = require('../model/Sales_Return_Detail_model');
 
-route.get('/:id?', function (req, res, next) {
-    if (req.params.id) {
+route.get('/:id/:id1?', function (req, res, next) {
+    if (req.params.id,req.params.id1) {
 
-        sale_return_detail.getSales_Return_DetailById(req.params.id, function (err, rows) {
+        sale_return_detail.getSales_Return_DetailById(req.params.id,req.params.id1, function (err, rows) {
 
             if (err) {
                 res.json(err);
@@ -29,9 +29,9 @@ route.get('/:id?', function (req, res, next) {
     }
 });
 
-route.delete('/:id', function (req, res, next) {
+route.delete('/:id/:id1', function (req, res, next) {
 
-    sale_return_detail.deleteSales_Return_DetailById(req.params.id, function (err, row) {
+    sale_return_detail.deleteSales_Return_DetailById(req.params.id,req.params.id1, function (err, row) {
         if (err) {
             res.json(err);
         }
@@ -42,9 +42,9 @@ route.delete('/:id', function (req, res, next) {
     });
 });
 
-route.put('/:id', function (req, res, next) {
+route.put('/:id/:id1', function (req, res, next) {
 
-    sale_return_detail.updateSales_Return_Detail(req.params.id, req.body, function (err, row) {
+    sale_return_detail.updateSales_Return_Detail(req.params.id,req.params.id1, req.body, function (err, row) {
 
         if (err) {
             res.json(err);

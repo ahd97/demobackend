@@ -2,11 +2,11 @@ var db = require('../dbconnection');
 var feedback = {
     getAllFeedback: function (callback) {
 
-      return  db.query("select * from Feedback", callback);
+      return  db.query("SELECT feedback.Feedback_id,user_master.User_name,feedback.Description FROM feedback,user_master WHERE feedback.User_id=user_master.User_id", callback);
     },
 
     getFeedbackById:function(id,callback){
-      return db.query("select * from Feedback where Feedback_id=?",[id],callback);
+      return db.query("SELECT feedback.Feedback_id,user_master.User_name,feedback.Description FROM feedback,user_master WHERE feedback.User_id=user_master.User_id and Feedback_id=?",[id],callback);
    },
 
     deleteFeedbackById: function (id, callback) {

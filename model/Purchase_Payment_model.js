@@ -2,11 +2,11 @@ var db = require('../dbconnection');
 var purchase_payment = {
     getAllPurchase_Payment: function (callback) {
 
-      return  db.query("select * from Purchase_Payment", callback);
+      return  db.query("SELECT purchase_payment.Purchase_payment_id,purchase_payment.Purchase_payment_date,supplier.Name,purchase_payment.Payment_type FROM purchase_payment,supplier WHERE purchase_payment.Supplier_id=supplier.Supplier_id", callback);
     },
 
     getPurchase_PaymentById:function(id,callback){
-      return db.query("select * from Purchase_Payment where Purchase_payment_id=?",[id],callback);
+      return db.query("SELECT purchase_payment.Purchase_payment_id,purchase_payment.Purchase_payment_date,supplier.Name,purchase_payment.Payment_type FROM purchase_payment,supplier WHERE purchase_payment.Supplier_id=supplier.Supplier_id and Purchase_payment_id=?",[id],callback);
    },
 
     deletePurchase_PaymentById: function (id, callback) {

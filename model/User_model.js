@@ -1,11 +1,11 @@
 var db = require('../dbconnection');
 var user={
     getAllUser:function(callback){
-        return db.query("select * from User_Master",callback);
+        return db.query("SELECT user_master.User_id,user_master.User_name,user_master.Password,user_master.Security_q,user_master.Security_a,user_master.Ph_no,user_master.E_mail,user_master.First_name,user_master.Last_name,user_master.Address,user_master.DOB,user_master.Created_date,user_master.Modified_date,user_master.Creted_by,user_master.Modified_by,role_master.Role_name FROM user_master,role_master WHERE user_master.Role_id=role_master.Role_id",callback);
     },
 
     getUserById:function(id,callback){
-        return db.query("select * from User_Master where User_id=?",[id],callback);
+        return db.query("SELECT user_master.User_id,user_master.User_name,user_master.Password,user_master.Security_q,user_master.Security_a,user_master.Ph_no,user_master.E_mail,user_master.First_name,user_master.Last_name,user_master.Address,user_master.DOB,user_master.Created_date,user_master.Modified_date,user_master.Creted_by,user_master.Modified_by,role_master.Role_name FROM user_master,role_master WHERE user_master.Role_id=role_master.Role_id and User_id=?",[id],callback);
     },
     deleteUserById:function(id,callback){
         return db.query("delete from User_Master where User_id=?",[id],callback);

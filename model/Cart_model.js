@@ -2,11 +2,11 @@ var db = require('../dbconnection');
 var cart = {
     getAllCart: function (callback) {
 
-      return  db.query("select * from Cart", callback);
+      return  db.query("SELECT cart.Cart_id,user_master.User_name FROM cart,user_master WHERE cart.User_id=user_master.User_id", callback);
     },
 
     getCartById:function(id,callback){
-      return db.query("select * from Cart where Cart_id=?",[id],callback);
+      return db.query("SELECT cart.Cart_id,user_master.User_name FROM cart,user_master WHERE cart.User_id=user_master.User_id and Cart_id=?",[id],callback);
    },
 
     deleteCartById: function (id, callback) {

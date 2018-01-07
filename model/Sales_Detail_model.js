@@ -2,23 +2,23 @@ var db = require('../dbconnection');
 var sales_detail = {
     getAllSales_Detail: function (callback) {
 
-      return  db.query("select * from Sales_Detail", callback);
+      return  db.query("SELECT sales_detail.Sales_id,product.Product_name,sales_detail.Qty FROM sales_detail,product WHERE sales_detail.Product_id=product.Product_id", callback);
     },
 
-    getSales_DetailById:function(id,callback){
-      return db.query("select * from Sales_Detail where Sales_id=?",[id],callback);
+    getSales_DetailById:function(id,id1,callback){
+      return db.query("SELECT sales_detail.Sales_id,product.Product_name,sales_detail.Qty FROM sales_detail,product WHERE sales_detail.Product_id=product.Product_id and Sales_id=? and Product_id=?",[id,id1],callback);
    },
 
-    deleteSales_DetailById: function (id, callback) {
+    deleteSales_DetailById: function (id,id1, callback) {
 
-     return   db.query("delete from Sales_Detail where Sales_id=?", [id], callback);
+     return   db.query("delete from Sales_Detail where Sales_id=? and Product_id=?", [id,id1], callback);
     },
 
-    updateSales_Detail:function(id,sales_detail,callback)
+    updateSales_Detail:function(id,id1,sales_detail,callback)
     {
       console.log(sales_detail.Qty);
       console.log(id);
-      return  db.query("update Sales_Detail set Qty=? where Sales_id=? and Product_id=?",[sales_detail.Qty,id,sales_detail.Product_id],callback);
+      return  db.query("update Sales_Detail set Qty=? where Sales_id=? and Product_id=?",[sales_detail.Qty,id,id1],callback);
     },
     
     addSales_Detail:function(sales_detail,callback){

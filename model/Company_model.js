@@ -2,11 +2,11 @@ var db = require('../dbconnection');
 var company = {
     getAllCompany: function (callback) {
 
-      return  db.query("select * from Company", callback);
+      return  db.query("SELECT company.Company_id,company.Company_name,company.Address,company.E_mail,company.Ph_no,city.City_name FROM company,city WHERE company.City_id=city.City_id", callback);
     },
 
     getCompanyById:function(id,callback){
-      return db.query("select * from Company where Company_id=?",[id],callback);
+      return db.query("SELECT company.Company_id,company.Company_name,company.Address,company.E_mail,company.Ph_no,city.City_name FROM company,city WHERE company.City_id=city.City_id and Company_id=?",[id],callback);
    },
 
     deleteCompanyById: function (id, callback) {

@@ -2,11 +2,11 @@ var db = require('../dbconnection');
 var product = {
     getAllProducts: function (callback) {
 
-      return  db.query("select * from Product", callback);
+      return  db.query("product,product_category,color,design,company where product.Design_id=design.Design_id AND product.Color_id=color.Color_id AND product.Product_cat_id=product_category.Product_cat_id AND product.Company_id=company.Company_id", callback);
     },
 
     getProductById:function(id,callback){
-      return db.query("select * from Product where Product_id=?",[id],callback);
+      return db.query("product,product_category,color,design,company where product.Design_id=design.Design_id AND product.Color_id=color.Color_id AND product.Product_cat_id=product_category.Product_cat_id AND product.Company_id=company.Company_id and Product_id=?",[id],callback);
    },
 
     deleteProductById: function (id, callback) {

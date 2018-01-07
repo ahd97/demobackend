@@ -2,11 +2,11 @@ var db = require('../dbconnection');
 var image = {
     getAllImage: function (callback) {
 
-      return  db.query("select * from Image", callback);
+      return  db.query("SELECT image.Image_id,image.Path,product.Product_name FROM image,product WHERE image.Product_id=product.Product_id", callback);
     },
 
     getImageById:function(id,callback){
-      return db.query("select * from Image where Image_id=?",[id],callback);
+      return db.query("SELECT image.Image_id,image.Path,product.Product_name FROM image,product WHERE image.Product_id=product.Product_id and Image_id=?",[id],callback);
    },
 
     deleteImageById: function (id, callback) {
