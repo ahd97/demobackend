@@ -5,8 +5,8 @@ var sales_detail = {
       return  db.query("SELECT sales_detail.Sales_id,product.Product_name,sales_detail.Qty FROM sales_detail,product WHERE sales_detail.Product_id=product.Product_id", callback);
     },
 
-    getSales_DetailById:function(id,id1,callback){
-      return db.query("SELECT sales_detail.Sales_id,product.Product_name,sales_detail.Qty FROM sales_detail,product WHERE sales_detail.Product_id=product.Product_id and Sales_id=? and Product_id=?",[id,id1],callback);
+    getSales_DetailById:function(id,callback){
+      return db.query("SELECT sales_detail.Sales_id,product.Product_name,sales_detail.Qty FROM sales_detail,product WHERE sales_detail.Product_id=product.Product_id and Sales_id=?",[id],callback);
    },
 
     deleteSales_DetailById: function (id,id1, callback) {

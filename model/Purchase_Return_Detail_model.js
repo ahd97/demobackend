@@ -5,8 +5,8 @@ var purchase_return_detail = {
       return  db.query("SELECT purchase_return_detail.Purchase_return_id,product.Product_name,purchase_return_detail.Qty FROM purchase_return_detail,product WHERE purchase_return_detail.Product_id=product.Product_id", callback);
     },
 
-    getPurchase_Return_DetailById:function(id,id1,callback){
-      return db.query("SELECT purchase_return_detail.Purchase_return_id,product.Product_name,purchase_return_detail.Qty FROM purchase_return_detail,product WHERE purchase_return_detail.Product_id=product.Product_id and Purchase_return_id=? and Product_id=?",[id,id1],callback);
+    getPurchase_Return_DetailById:function(id,callback){
+      return db.query("SELECT purchase_return_detail.Purchase_return_id,product.Product_name,purchase_return_detail.Qty FROM purchase_return_detail,product WHERE purchase_return_detail.Product_id=product.Product_id and Purchase_return_id=?",[id],callback);
    },
 
     deletePurchase_Return_DetailById: function (id,id1, callback) {

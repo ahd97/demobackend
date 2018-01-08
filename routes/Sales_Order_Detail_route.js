@@ -2,10 +2,10 @@ var exp = require('express');
 var route = exp.Router();
 var sale_order_detail = require('../model/Sales_Order_Detail_model');
 
-route.get('/:id/:id1?', function (req, res, next) {
-    if (req.params.id,req.params.id1) {
+route.get('/:id?', function (req, res, next) {
+    if (req.params.id) {
 
-        sale_order_detail.getSales_Order_DetailById(req.params.id,req.params.id1, function (err, rows) {
+        sale_order_detail.getSales_Order_DetailById(req.params.id, function (err, rows) {
 
             if (err) {
                 res.json(err);

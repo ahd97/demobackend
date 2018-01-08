@@ -2,10 +2,10 @@ var exp = require('express');
 var route = exp.Router();
 var cart_detail = require('../model/Cart_Detail_model');
 
-route.get('/:id/:id1?', function (req, res, next) {
-    if (req.params.idreq.params.id1) {
+route.get('/:id?', function (req, res, next) {
+    if (req.params.id) {
 
-        cart_detail.getCart_DetailById(req.params.id,req.params.id1, function (err, rows) {
+        cart_detail.getCart_DetailById(req.params.id, function (err, rows) {
 
             if (err) {
                 res.json(err);

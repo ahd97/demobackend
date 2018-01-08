@@ -5,8 +5,8 @@ var cart_detail = {
       return  db.query("SELECT cart_detail.Cart_id,product.Product_name,cart_detail.Qty FROM cart_detail,product WHERE cart_detail.Product_id=product.Product_id", callback);
     },
 
-    getCart_DetailById:function(id,id1,callback){
-      return db.query("SELECT cart_detail.Cart_id,product.Product_name,cart_detail.Qty FROM cart_detail,product WHERE cart_detail.Product_id=product.Product_id and Cart_id=? and Product_id=?",[id,id1],callback);
+    getCart_DetailById:function(id,callback){
+      return db.query("SELECT cart_detail.Cart_id,product.Product_name,cart_detail.Qty FROM cart_detail,product WHERE cart_detail.Product_id=product.Product_id and Cart_id=?",[id],callback);
    },
 
     deleteCart_DetailById: function (id,id1, callback) {

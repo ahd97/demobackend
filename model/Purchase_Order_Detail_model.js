@@ -5,8 +5,8 @@ var purchase_order_detail = {
       return  db.query("SELECT purchase_order_detail.Purchase_order_id,product.Product_name,purchase_order_detail.Received_date,purchase_order_detail.Qty_ordered,purchase_order_detail.Qty_received FROM purchase_order_detail,product WHERE purchase_order_detail.Product_id=product.Product_id", callback);
     },
 
-    getPurchase_Order_DetailById:function(id,id1,callback){
-      return db.query("SELECT purchase_order_detail.Purchase_order_id,product.Product_name,purchase_order_detail.Received_date,purchase_order_detail.Qty_ordered,purchase_order_detail.Qty_received FROM purchase_order_detail,product WHERE purchase_order_detail.Product_id=product.Product_id and Purchase_order_id=? and Product_id=?",[id,id1],callback);
+    getPurchase_Order_DetailById:function(id,callback){
+      return db.query("SELECT purchase_order_detail.Purchase_order_id,product.Product_name,purchase_order_detail.Received_date,purchase_order_detail.Qty_ordered,purchase_order_detail.Qty_received FROM purchase_order_detail,product WHERE purchase_order_detail.Product_id=product.Product_id and Purchase_order_id=?",[id],callback);
    },
 
     deletePurchase_Order_DetailById: function (id,id1, callback) {
