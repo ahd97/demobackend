@@ -6,7 +6,7 @@ var feedback = {
     },
 
     getFeedbackById:function(id,callback){
-      return db.query("SELECT feedback.Feedback_id,user_master.User_name,feedback.Description FROM feedback,user_master WHERE feedback.User_id=user_master.User_id and Feedback_id=?",[id],callback);
+      return db.query("SELECT * FROM feedback WHERE feedback_id=?",[id],callback);
    },
 
     deleteFeedbackById: function (id, callback) {

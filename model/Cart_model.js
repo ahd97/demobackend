@@ -6,7 +6,7 @@ var cart = {
     },
 
     getCartById:function(id,callback){
-      return db.query("SELECT cart.Cart_id,user_master.User_name FROM cart,user_master WHERE cart.User_id=user_master.User_id and Cart_id=?",[id],callback);
+      return db.query("SELECT * FROM cart WHERE Cart_id=?",[id],callback);
    },
 
     deleteCartById: function (id, callback) {

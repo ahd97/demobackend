@@ -18,7 +18,7 @@ var purchase_return = {
     {
       console.log(purchase_return.Purchase_return_date);
       console.log(id);
-      return  db.query("update Purchase_Return set Purchase_return_date=? where Purchase_return_id=?",[purchase_return.Purchase_return_date,id],callback);
+      return  db.query("update Purchase_Return set Purchase_id=?, Purchase_return_date=? where Purchase_return_id=?",[purchase_return.Purchase_id,purchase_return.Purchase_return_date,id],callback);
     },
     
     addPurchase_Return:function(purchase_return,callback){

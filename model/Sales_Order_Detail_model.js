@@ -6,7 +6,7 @@ var sales_order_detail = {
     },
 
     getSales_Order_DetailById:function(id,callback){
-      return db.query("SELECT sales_order_detail.Sales_order_id,product.Product_name,sales_order_detail.Qty_dispatched,sales_order_detail.Qty_ordered FROM sales_order_detail,product WHERE sales_order_detail.Product_id=product.Product_id and Sales_order_id=?",[id],callback);
+      return db.query("SELECT *FROM sales_order_detail WHERE Sales_order_id=?",[id],callback);
    },
 
     deleteSales_Order_DetailById: function (id,id1, callback) {

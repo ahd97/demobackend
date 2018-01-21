@@ -5,7 +5,7 @@ var purchase_return = require('../model/Purchase_return_model');
 route.get('/:id?', function (req, res, next) {
     if (req.params.id) {
 
-        purchase_return.getAllPurchase_Return(req.params.id, function (err, rows) {
+        purchase_return.getPurchase_ReturnById(req.params.id, function (err, rows) {
 
             if (err) {
                 res.json(err);

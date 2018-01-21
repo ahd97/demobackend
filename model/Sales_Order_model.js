@@ -6,7 +6,7 @@ var sales_order = {
     },
 
     getSales_OrderById:function(id,callback){
-      return db.query("SELECT sales_order.Sales_order_id,sales_order.User_id,sales_order.Customer_name,sales_order.Order_date,sales_order.Order_address,city.City_name,sales_order.Order_status FROM sales_order,city WHERE sales_order.City_id=city.City_id and Sales_order_id=?",[id],callback);
+      return db.query("SELECT * FROM sales_order WHERE Sales_order_id=?",[id],callback);
    },
 
     deleteSales_OrderById: function (id, callback) {
@@ -26,7 +26,7 @@ var sales_order = {
       console.log(sales_order.Order_date);
       console.log(sales_order.Order_status);
       
-       return db.query("insert into Sales_Order(Sales_order_id,Customer_name,Order_date,Order_address,Order_status) values(?,?,?,?,?)",[null,sales_order.Customer_name,sales_order.Order_date,sales_order.Order_address,sales_order.Order_status],callback);
+       return db.query("insert into Sales_Order (Sales_order_id,User_id,Customer_name,Order_date,Order_address,City_id,Order_status) values(?,?,?,?,?,?,?)",[null,sales_order.User_id,sales_order.Customer_name,sales_order.Order_date,sales_order.Order_address,sales_order.City_id,sales_order.Order_status],callback);
     }
     
 };

@@ -42,7 +42,7 @@ route.delete('/:id/:id1', function (req, res, next) {
     });
 });
 
-route.put('/:id', function (req, res, next) {
+route.put('/:id/:id1', function (req, res, next) {
 
     purchase_detail.updatePurchase_Detail(req.params.id,req.params.id1, req.body, function (err, row) {
 

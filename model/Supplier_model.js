@@ -22,7 +22,7 @@ var supplier = {
     },
     
     addSupplier:function(supplier,callback){
-       return db.query("insert into Supplier(Supplier_id,Name,Address,Ph_no) values(?,?,?,?)",[null,supplier.Name,supplier.Address,supplier.Ph_no],callback);
+       return db.query("insert into Supplier (Supplier_id,Name,Address,Ph_no) values(?,?,?,?)",[null,supplier.Name,supplier.Address,supplier.Ph_no],callback);
     }
     
 };

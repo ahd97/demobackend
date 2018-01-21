@@ -6,7 +6,7 @@ var image = {
     },
 
     getImageById:function(id,callback){
-      return db.query("SELECT image.Image_id,image.Path,product.Product_name FROM image,product WHERE image.Product_id=product.Product_id and Image_id=?",[id],callback);
+      return db.query("SELECT * FROM image WHERE Image_id=?",[id],callback);
    },
 
     deleteImageById: function (id, callback) {
@@ -18,11 +18,11 @@ var image = {
     {
       console.log(image.Path);
       console.log(id);
-      return  db.query("update Image set Path=? where Image_id=?",[image.Path,id],callback);
+      return  db.query("update Image set Path=?,Product_id=? where Image_id=?",[image.Path,image.Product_id,id],callback);
     },
     
     addImage:function(image,callback){
-       return db.query("insert into Image (Image_id,Path) values(?,?)",[null,image.Path],callback);
+       return db.query("insert into Image (Image_id,Path,Product_id) values(?,?,?)",[null,image.Path,image.Product_id],callback);
     }
 
     

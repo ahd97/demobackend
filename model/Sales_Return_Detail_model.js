@@ -6,7 +6,7 @@ var sales_return_detail = {
     },
 
     getSales_Return_DetailById:function(id,callback){
-      return db.query("SELECT sales_return_detail.Sales_return_id,product.Product_name,sales_return_detail.Qty FROM sales_return_detail,product WHERE sales_return_detail.Product_id=product.Product_id and Sales_return_id=?",[id],callback);
+      return db.query("SELECT *FROM sales_return_detail WHERE Sales_return_id=?",[id],callback);
    },
 
     deleteSales_Return_DetailById: function (id,id1, callback) {
@@ -22,7 +22,7 @@ var sales_return_detail = {
     },
     
     addSales_Return_Detail:function(sales_return_detail,callback){
-       return db.query("insert into Sales_Return_Detail(Sales_return_id,Product_id,Qty) values(?,?,?)",[sales_return_detail.Sales_return_id,sales_return_detail.Product_id,sales_return_detail.Qty],callback);
+       return db.query("insert into Sales_Return_Detail (Sales_return_id,Product_id,Qty) values(?,?,?)",[sales_return_detail.Sales_return_id,sales_return_detail.Product_id,sales_return_detail.Qty],callback);
     }
     
 };

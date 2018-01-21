@@ -18,11 +18,11 @@ var sale = {
     {
       console.log(sale.Sales_date);
       console.log(id);
-      return  db.query("update Sales set Sales_date=? where Sales_id=?",[sale.Sales_date,id],callback);
+      return  db.query("update Sales set Sales_order_id=?,Sales_date=?,Amount=?,Sales_payment_id=? where Sales_id=?",[sale.Sales_order_id,sale.Sales_date,sale.Amount,sale.Sales_payment_id,id],callback);
     },
     
     addSale:function(sale,callback){
-       return db.query("insert into Sales(Sales_id,Sales_date) values(?,?)",[null,sale.Sales_date],callback);
+       return db.query("insert into Sales (Sales_id,Sales_order_id,Sales_date,Amount,Sales_payment_id) values(?,?,?,?,?)",[null,sale.Sales_order_id,sale.Sales_date,sale.Amount,sale.Sales_payment_id],callback);
     }
     
 };

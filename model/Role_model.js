@@ -22,7 +22,7 @@ var role = {
     },
     
     addRole:function(role,callback){
-       return db.query("insert into Role_Master(Role_id,Role_name) values(?,?)",[null,role.Role_name],callback);
+       return db.query("insert into Role_Master (Role_id,Role_name) values(?,?)",[null,role.Role_name],callback);
     }
     
 };

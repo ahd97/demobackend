@@ -6,7 +6,7 @@ var purchase_payment = {
     },
 
     getPurchase_PaymentById:function(id,callback){
-      return db.query("SELECT purchase_payment.Purchase_payment_id,purchase_payment.Purchase_payment_date,supplier.Name,purchase_payment.Payment_type FROM purchase_payment,supplier WHERE purchase_payment.Supplier_id=supplier.Supplier_id and Purchase_payment_id=?",[id],callback);
+      return db.query("SELECT * from Purchase_payment where Purchase_payment_id=?",[id],callback);
    },
 
     deletePurchase_PaymentById: function (id, callback) {
@@ -18,7 +18,7 @@ var purchase_payment = {
     {
       console.log(purchase_payment.date);
       console.log(id);
-      return  db.query("update Purchase_Payment set Purchase_payment_date=?,Payment_type=? where Purchase_payment_id=?",[purchase_payment.Purchase_payment_date,purchase_payment.Payment_type,id],callback);
+      return  db.query("update Purchase_Payment set Purchase_payment_date=?,Supplier_id=?,Payment_type=? where Purchase_payment_id=?",[purchase_payment.Purchase_payment_date,purchase_payment.Supplier_id,purchase_payment.Payment_type,id],callback);
     },
     
     addPurchase_Payment:function(purchase_payment,callback){
