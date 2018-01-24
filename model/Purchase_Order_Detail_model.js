@@ -18,7 +18,7 @@ var purchase_order_detail = {
     {
       console.log(purchase_order_detail.Qty_ordered);
       console.log(id);
-      return  db.query("update Purchase_Order_Detail set Received_date=?,Qty_ordered=?,Qty_received=? where Purchase_order_id=? and Product_id=?",[purchase_order_detail.Received_date,purchase_order_detail.Qty_ordered,purchase_order_detail.Qty_received,id,id1],callback);
+      return  db.query("update Purchase_Order_Detail set Product_id=?,Received_date=?,Qty_ordered=?,Qty_received=? where Purchase_order_id=? and Product_id=?",[purchase_order_detail.Product_id,purchase_order_detail.Received_date,purchase_order_detail.Qty_ordered,purchase_order_detail.Qty_received,id,id1],callback);
     },
     
     addPurchase_Order_Detail:function(purchase_order_detail,callback){

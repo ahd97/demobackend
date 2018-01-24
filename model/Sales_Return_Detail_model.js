@@ -18,7 +18,7 @@ var sales_return_detail = {
     {
       console.log(sales_return_detail.Qty);
       console.log(id);
-      return  db.query("update Sales_Return_Detail set Qty=? where Sales_return_id=? and Product_id=?",[sales_return_detail.Qty,id,id1],callback);
+      return  db.query("update Sales_Return_Detail set Product_id=?,Qty=? where Sales_return_id=? and Product_id=?",[sales_return_detail.Product_id,sales_return_detail.Qty,id,id1],callback);
     },
     
     addSales_Return_Detail:function(sales_return_detail,callback){

@@ -18,7 +18,7 @@ var sales_detail = {
     {
       console.log(sales_detail.Qty);
       console.log(id);
-      return  db.query("update Sales_Detail set Qty=?,Price_per_unit=? where Sales_id=? and Product_id=?",[sales_detail.Qty,sales_detail.Price_per_unit,id,id1],callback);
+      return  db.query("update Sales_Detail set Product_id=?,Qty=?,Price_per_unit=? where Sales_id=? and Product_id=?",[sales_detail.Product_id,sales_detail.Qty,sales_detail.Price_per_unit,id,id1],callback);
     },
     
     addSales_Detail:function(sales_detail,callback){

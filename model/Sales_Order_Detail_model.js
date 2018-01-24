@@ -18,7 +18,7 @@ var sales_order_detail = {
     {
       console.log(sales_order_detail.Qty_ordered);
       console.log(id);
-      return  db.query("update Sales_Order_Detail set Qty_dispatched=?,Qty_ordered=? where Sales_order_id=? and Product_id=?",[sales_order_detail.Qty_dispatched,sales_order_detail.Qty_ordered,id,id1],callback);
+      return  db.query("update Sales_Order_Detail set Product_id=?,Qty_dispatched=?,Qty_ordered=? where Sales_order_id=? and Product_id=?",[sales_order_detail.Product_id,sales_order_detail.Qty_dispatched,sales_order_detail.Qty_ordered,id,id1],callback);
     },
     
     addSales_Order_Detail:function(sales_order_detail,callback){

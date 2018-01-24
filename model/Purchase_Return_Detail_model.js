@@ -18,7 +18,7 @@ var purchase_return_detail = {
     {
       console.log(purchase_return_detail.Qty);
       console.log(id);
-      return  db.query("update Purchase_Return_Detail set Qty=? where Purchase_return_id=? and Product_id=?",[purchase_return_detail.Qty,id,id1],callback);
+      return  db.query("update Purchase_Return_Detail set Product_id=?,Qty=? where Purchase_return_id=? and Product_id=?",[purchase_return_detail.Product_id,purchase_return_detail.Qty,id,id1],callback);
     },
     
     addPurchase_Return_Detail:function(purchase_return_detail,callback){

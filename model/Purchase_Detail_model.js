@@ -18,7 +18,7 @@ var purchase_detail = {
     {
       console.log(purchase_detail.Qty);
       console.log(id);
-      return  db.query("update Purchase_Detail set Price_per_unit=?,Qty=? where Purchase_id=? and Product_id",[purchase_detail.Price_per_unit,purchase_detail.Qty,id,id1],callback);
+      return  db.query("update Purchase_Detail set Product_id=?,Price_per_unit=?,Qty=? where Purchase_id=? and Product_id=?",[purchase_detail.Product_id,purchase_detail.Price_per_unit,purchase_detail.Qty,id,id1],callback);
     },
     
     addPurchase_Detail:function(purchase_detail,callback){
